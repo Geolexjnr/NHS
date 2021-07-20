@@ -31,8 +31,8 @@
 
 
     //insert into the user table
-     $sql = "INSERT INTO user (`username`, `name`, `email`, `mobile`, `address`, `referral_user`, `join_date`)
-     	VALUES ('$username', '$name', '$email',  '$mobile', '$address', $converted, '$reg_date')";
+     $sql = "INSERT INTO user (`username`, `name`, `email`, `password`, `mobile`, `address`, `referral_user`, `join_date`)
+     	VALUES ('$username', '$name', '$email', '$password', '$mobile', '$address', $converted, '$reg_date')";
 
 if($password != $password_confirm){
     echo "passwords should be the same";
