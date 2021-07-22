@@ -51,7 +51,7 @@ include ('php-includes/check-login.php');
 
     </div>
     <!-- End of Page Wrapper -->
-    <?php echo include('php-includes/footer.php') ?>
+    <?php include('php-includes/footer.php') ?>
     
 </body>
 

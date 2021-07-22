@@ -1,7 +1,8 @@
 <?php 
-
+include ('../php-includes/connect.php');
 include ('php-includes/check-login.php');
 
+//echo $_SESSION['user_id'];
 ?>
 
 <!DOCTYPE html>
@@ -37,18 +38,18 @@ include ('php-includes/check-login.php');
             <h1 class="h3 mb-4 text-gray-800">E-Pin Requests</h1>
 
             <hr>
-
+           
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">EPin Request Form</h6>
                 </div>
                 <div class="card-body">
-                <form action="">
+                <form id="form_epin_request">
                 <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>How many Epin(s) are you requesting</label>
-                                <input type="number" name="no_of_epin" id="no_of_epin" class="form-control" required="">
+                                <input type="number" name="no_of_epin" class="form-control" id="no_of_epin" required>
                             </div>
                         </div>
 
@@ -61,7 +62,7 @@ include ('php-includes/check-login.php');
                         <div class="col-md-4">
                             <div class="form-group"> 
                                 <label>Upload Payment Receipt</label>
-                                <input type="file" name="receipt_file" class="form-control" required>
+                                <input type="file" name="receipt_file" class="form-control " required>
                             </div>
                         </div>
                     </div>
@@ -97,7 +98,7 @@ include ('php-includes/check-login.php');
 
 </div>
 <!-- End of Page Wrapper -->
-<?php echo include('php-includes/footer.php') ?>
+<?php include('php-includes/footer.php') ?>
 
 <script type="text/javascript">
     var single_epin = 250;
@@ -105,7 +106,33 @@ include ('php-includes/check-login.php');
     $("#no_of_epin").keyup(function(){
         var total_amount_to_pay = $(this).val() * single_epin;
         $("#amount_to_pay").val(total_amount_to_pay);
-    })
+    });
+        //send form data to server
+        $("#form_epin_request").submit(function(){
+            var formData = new FormData($(this)[0]);
+           $.ajax({
+               url:'ajax/epin-request.php',
+               type: "POST",
+               data: formData,
+               success: function(data){
+                   //code run successfully
+                   if(data==1){
+                       alert('Epin Request sent Successfully');
+                       $("#form_epin_request").trigger("reset");
+                     // alert(data);
+                   }else{
+
+                    alert(data);
+
+                   }
+               },
+               cache: false,
+               contentType: false,
+               processData:false
+           });
+            return false;
+        });
+
 </script>
 
 </body>

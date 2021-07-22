@@ -14,12 +14,16 @@ if(isset($_POST['submit_login'])){
 
     $query = mysqli_query($con, $sql);
 
-    $result = mysqli_fetch_assoc($query);
+    //$result = mysqli_fetch_array($query);
 
-    echo $result['password'];
+   // echo $result['password'];
 
     if(mysqli_num_rows($query)>0){
+
+        $output = mysqli_fetch_array($query);
+
         $_SESSION['userid'] = $email;
+        $_SESSION['user_id'] = $output['id'];
         $_SESSION['id'] = session_id();
         $_SESSION['login_type'] = "user";
 
