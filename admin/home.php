@@ -1,3 +1,9 @@
+<?php
+
+include('php-includes/check-login.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
