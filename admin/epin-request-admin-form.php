@@ -2,7 +2,7 @@
 
 require('../php-includes/connect.php');
 
-include('php-includes/check-login.php');
+//include('php-includes/check-login.php');
 
 ?>
 
@@ -155,17 +155,14 @@ include('php-includes/check-login.php');
 
 
 
-<script>
+<!--<script>
 
 function reply_click(clicked_name)
   {
-  
-    var no_of_pin =   $('button[name="'+clicked_name+'"]').val();
-  
    
-   var formData;
+    var formData;
         var rmk = $("\#"+clicked_name).val();
-        
+        var no_of_pin = 3;
     formData ={'rmk':rmk, 'userID':clicked_name, 'pin_no':no_of_pin} ;
      console.log(formData);
     $.ajax({
@@ -177,12 +174,14 @@ function reply_click(clicked_name)
         },
         cache: false
     });
+    
+	  
       
      
  
 }
 
-</script>
+</script>-->
 
 
 
