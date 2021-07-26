@@ -169,7 +169,7 @@ function reply_click(clicked_name)
     formData ={'rmk':rmk, 'ID':clicked_name, 'pin_no':no_of_pin} ;
      console.log(formData);
     $.ajax({
-        url: "epin_request_data.php",
+        url: "epin_request_approve.php",
         type: 'POST',
         data: formData,
         success: function (data) {
