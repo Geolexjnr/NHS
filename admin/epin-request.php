@@ -125,9 +125,9 @@ include('php-includes/check-login.php');
                                                 </td>
 
                                                 <td>
-                                                
-                                                    <button type="submit"  value = "<?php echo $row['no_of_epin']; ?>"  id ="<?php echo $id; ?>"  onClick="reply_click(this.name)" name="<?php echo $id; ?>"  class="btn btn-success">Approve</button>
-                                                    <button type="submit"  onClick="reply_click(this.name)" name="<?php echo $id_cancel; ?>" class="btn btn-danger">Cancel</button>
+                                                    <input type="hidden" name="id" value="<?php echo $id ?>" >
+                                                    <button type="submit"  value = "<?php echo $row['no_of_epin']; ?>"  id ="<?php echo $id; ?>"  onClick="reply_click(this.name)"  name="<?php echo $id; ?>"  class="btn btn-success">Approve</button>
+                                                    <button type="submit"    value = "<?php echo $row['no_of_epin']; ?>"id ="<?php echo $id; ?>"  onClick="reply_click_cancel(this.name)" name="<?php echo $id_cancel; ?>" class="btn btn-danger">Cancel</button>
                                                    
                                                 </td>
                                             <div>
@@ -166,14 +166,49 @@ function reply_click(clicked_name)
    var formData;
         var rmk = $("\#"+clicked_name).val();
         
-    formData ={'rmk':rmk, 'userID':clicked_name, 'pin_no':no_of_pin} ;
+    formData ={'rmk':rmk, 'ID':clicked_name, 'pin_no':no_of_pin} ;
      console.log(formData);
     $.ajax({
         url: "epin_request_data.php",
         type: 'POST',
         data: formData,
         success: function (data) {
-            alert(data);
+            if(data ==1){
+                alert('Epin Sent Successfully!'); window.location.assign('epin-request.php')
+            };
+        },
+        cache: false
+    });
+      
+     
+ 
+}
+
+</script>
+
+
+<script>
+
+
+function reply_click_cancel(clicked_value)
+  {
+  
+    var no_of_pin =   $('button[name="'+clicked_value+'"]').val();
+  
+   
+   var formData;
+        var cancel = $("\#"+clicked_value).val();
+        
+    formData ={'cancel':cancel, 'ID':clicked_value, 'pin_no':no_of_pin} ;
+     console.log(formData);
+    $.ajax({
+        url: "epin-request-cancel.php",
+        type: 'POST',
+        data: formData,
+        success: function (data) {
+            if(data==1){
+              alert('Epin Request cancelled!'); window.location.assign('epin-request.php');
+            }
         },
         cache: false
     });
