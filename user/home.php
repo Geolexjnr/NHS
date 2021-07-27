@@ -1,7 +1,9 @@
 <?php 
 
 include ('php-includes/check-login.php');
+include ('../php-includes/connect.php');
 
+$page_title = "Home";
 ?>
 
 <!DOCTYPE html>
@@ -9,6 +11,7 @@ include ('php-includes/check-login.php');
 
 <head>
     <?php include('php-includes/header-content.php')?>
+  
 </head>
 
 <body id="page-top">
@@ -34,7 +37,7 @@ include ('php-includes/check-login.php');
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+                    <h1 class="h3 mb-4 text-gray-800"><?php echo $page_title ?></h1>
 
                 </div>
                 <!-- /.container-fluid -->

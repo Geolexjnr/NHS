@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="home.php">
     <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-pills"></i>
     </div>
@@ -13,7 +13,7 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item">
-    <a class="nav-link" href="index.html">
+    <a class="nav-link" href="home.php">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
 </li>
@@ -53,13 +53,30 @@
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             
-            <a class="collapse-item" href="epin-request.php">E-Pin Request</a>
-            <a class="collapse-item" href="utilities-border.html">History</a>
+            <a class="collapse-item" href="epin-request.php">EPin Request</a>
+            <a class="collapse-item" href="epin-request-history.php">Epin History</a>
             
         </div>
     </div>
 </li>
 
+<!-- User Nav Item - Utilities Collapse Menu -->
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#userActivationMenu"
+        aria-expanded="true" aria-controls="collapseUtilities">
+        <i class="fas fa-user-plus"></i>
+        <span>User Activation</span>
+    </a>
+    <div id="userActivationMenu" class="collapse" aria-labelledby="headingUtilities"
+        data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            
+            <a class="collapse-item" href="activate-new-user.php">Activate A User</a>
+            <a class="collapse-item" href="activated-user-history.php">User Activation History</a>
+            
+        </div>
+    </div>
+</li>
 
 
 
